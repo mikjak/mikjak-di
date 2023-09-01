@@ -1,13 +1,15 @@
 package com.jakubmikula.mikjakdi.controllers;
 
 import com.jakubmikula.mikjakdi.services.GreetingService;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
 @Controller
-public class MyController {
-    GreetingService service;
+public class I18nController {
 
-    public MyController(GreetingService service) {
+    private final GreetingService service;
+
+    public I18nController(@Qualifier("i18nService") GreetingService service) {
         this.service = service;
     }
 
